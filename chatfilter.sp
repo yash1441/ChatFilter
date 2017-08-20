@@ -1,7 +1,7 @@
 #pragma semicolon 1
 
 #include <sourcemod>
-#include <scp>
+#include <cp-scp-wrapper>
 
 #define PLUGIN_VERSION		"1.0"
 
