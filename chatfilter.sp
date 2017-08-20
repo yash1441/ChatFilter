@@ -1,7 +1,8 @@
 #pragma semicolon 1
+#pragma newdecls required
 
 #include <sourcemod>
-#include <cp-scp-wrapper>
+#include <chat-processor>
 
 #define PLUGIN_VERSION		"1.0"
 
@@ -25,7 +26,7 @@ public void OnPluginStart()
 	BuildPath(Path_SM, Path2Txt, sizeof(Path2Txt), "configs/chatfilter.txt");
 }
 
-public Action OnChatMessage(int &author, Handle recipients, char[] name, char[] message)
+public Action CP_OnChatMessage(int& author, ArrayList recipients, char[] flagstring, char[] name, char[] message, bool& processcolors, bool& removecolors)
 {
 	if (GetConVarBool(ChatFilterEnabled) == false)
 		return Plugin_Continue;
